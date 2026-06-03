@@ -15,25 +15,42 @@ while True:
 2. depositar dinero
 3. Girar dinero
 4. Salir""")
-    opc = int(input("Eliga una opción: "))
+    while True:
+        try:
+            opc = int(input("Eliga una opción: "))
+            if opc < 1 or opc > 4:
+                print("Error! Debe ingresar un número entre 1 y 4.")
+            else:
+                break
+        except:
+            print("Error! debe ingresar un núemero entero positivo.")
     if opc == 1:
-        print("Su saldo es: ", saldo)
+        print("Su saldo es de: ", saldo)
     elif opc == 2:
-        depositar = int(input("Ingrese la cantidad a depositar: "))
-        if depositar <= 0:
-            print("Error! Ingrese una cantidad válida.")
-        else:
-            saldo += depositar
-            print("El nuevo saldo es: ", saldo)
+        while True:
+            try:
+                depositar = int(input("Ingrese la cantidad a depositar: "))
+                if depositar <= 0:
+                    print("Error! Ingrese una cantidad válida.")
+                else:
+                    saldo += depositar
+                    print("El nuevo saldo es: ", saldo)
+                    break
+            except:
+                print("Error! debe ingresar un número entero positivo.")
     elif opc == 3:
-        retirar = int(input("Cuánto dinero desea retirar? "))
-        if retirar > saldo:
-            print("Error! No hay suficiente saldo para realizar esta operación.")
-        elif retirar <= 0:
-            print("Error! Ingrese una cantidad válida.")
-        else:
-            saldo -= retirar
-            print("El nuevo saldo es: ", saldo)
+        while True:
+            try:
+                retirar = int(input("Cuánto dinero desea retirar?: "))
+                print("Error! debe ingresar un número entero positivo.")
+                if retirar > 0:
+                    break
+                elif retirar <= 0:
+                    print("Error! Debe ingresar un número mayor a 0.")
+                elif retirar > saldo:
+                    print("Error! No tiene suficiente saldo para retirar esa cantidad.")
+            except:
+                print("Error! debe ingresar un número entero positivo.")
     elif opc == 4:
         print("Gracias por usar el cajero automático")
         break
