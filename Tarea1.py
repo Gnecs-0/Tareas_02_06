@@ -1,6 +1,7 @@
 import os, time
 os.system ("cls")
-
+print("Bienvenido al programa de cálculo de descuento.")
+time.sleep(2)
 #estructura
 while True:
     os.system ("cls")
@@ -47,3 +48,6 @@ print(f"""Producto: {nombre}
 Precio original: {precio}
 Descuento: {descuento}%
 Precio final: {precio_desc}""")
+time.sleep(3)
+os.system ("cls")
+print("Gracias por usar el programa de cálculo de descuento.")
