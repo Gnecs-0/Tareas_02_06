@@ -8,18 +8,30 @@
 #Regla
 #Aprueba con promedio mayor o igual a 4.0.
 acumulador_notas = 0
-cant_notas = int(input("Ingrese la cantidad de notas: "))
-if cant_notas <= 0:
-    print("La cantidad de notas debe ser mayor a cero.")
+while True:
+    try:
+        cant_notas = int(input("Ingrese la cantidad de notas: "))
+        if cant_notas <= 0:
+            print("La cantidad de notas debe ser mayor a cero.")
+        else:
+            break
+    except:
+        print("Error! Debe ingresar un número entero positivo.")        
 
 
 for i in range(cant_notas):
-    nota = float(input(f"ingrese la nota {i+1}: "))
-    if 1.0 <= nota <= 7.0:
-        acumulador_notas += nota
+    while True:
+        try:
+            nota = float(input(f"ingrese la nota {i+1}: "))
+            if 1.0 <= nota <= 7.0:
+                acumulador_notas += nota
+                break
+            else:
+                print("Error! La nota debe estar entre 1.0 y 7.0.")
+        except:
+            print("Error! Debe ingresar un número positivo entre 1.0 y 7.0.")
 
 promedio = acumulador_notas / cant_notas
-
 if promedio >= 4.0:
     estado  = "Aprobado"
 else:
